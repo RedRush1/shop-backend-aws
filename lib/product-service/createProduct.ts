@@ -1,4 +1,4 @@
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, TransactWriteItemsCommand } from '@aws-sdk/client-dynamodb';
 import { randomUUID as uuidv4 } from 'crypto';
 
 const dynamoDB = new DynamoDBClient({ region: process.env.AWS_REGION });
@@ -37,25 +37,43 @@ export async function main(event: any) {
     };
   }
 
+  if (count !== undefined && (typeof count !== 'number' || !Number.isInteger(count) || count < 0)) {
+    return {
+      statusCode: 400,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'count must be a non-negative integer' }),
+    };
+  }
+
   try {
     const id = uuidv4();
+    const safeCount = count ?? 0;
 
-    await dynamoDB.send(new PutItemCommand({
-      TableName: PRODUCTS_TABLE,
-      Item: {
-        id:          { S: id },
-        title:       { S: title.trim() },
-        description: { S: description ?? '' },
-        price:       { N: price.toString() },
-      },
-    }));
-
-    await dynamoDB.send(new PutItemCommand({
-      TableName: STOCK_TABLE,
-      Item: {
-        product_id: { S: id },
-        count:      { N: (count ?? 0).toString() },
-      },
+    // Transactional write: both product and stock are created atomically.
+    // If either write fails, neither record is saved.
+    await dynamoDB.send(new TransactWriteItemsCommand({
+      TransactItems: [
+        {
+          Put: {
+            TableName: PRODUCTS_TABLE,
+            Item: {
+              id:          { S: id },
+              title:       { S: title.trim() },
+              description: { S: description ?? '' },
+              price:       { N: price.toString() },
+            },
+          },
+        },
+        {
+          Put: {
+            TableName: STOCK_TABLE,
+            Item: {
+              product_id: { S: id },
+              count:      { N: safeCount.toString() },
+            },
+          },
+        },
+      ],
     }));
 
     return {
@@ -64,7 +82,13 @@ export async function main(event: any) {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id, title: title.trim(), description: description ?? '', price, count: count ?? 0 }),
+      body: JSON.stringify({
+        id,
+        title: title.trim(),
+        description: description ?? '',
+        price,
+        count: safeCount,
+      }),
     };
   } catch (error) {
     console.error('createProduct error:', error);
@@ -75,4 +99,3 @@ export async function main(event: any) {
     };
   }
 }
-
