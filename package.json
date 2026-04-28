@@ -9,19 +9,25 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy": "cdk deploy --all"
+    "deploy": "cdk deploy --all",
+    "seed": "ts-node scripts/seed-tables.ts"
   },
   "devDependencies": {
     "@types/jest": "^30",
     "@types/node": "^24.10.1",
+    "aws-cdk": "2.1117.0",
+    "esbuild": "^0.28.0",
     "jest": "^30",
     "ts-jest": "^29",
-    "aws-cdk": "2.1117.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.9.3"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1037.0",
+    "@types/aws-lambda": "^8.10.161",
     "aws-cdk-lib": "^2.247.0",
-    "constructs": "^10.5.0"
+    "aws-lambda": "^1.0.7",
+    "constructs": "^10.5.0",
+    "uuid": "^14.0.0"
   }
 }
