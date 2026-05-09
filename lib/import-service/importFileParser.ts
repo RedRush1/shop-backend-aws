@@ -1,8 +1,11 @@
 import { S3Client, GetObjectCommand, CopyObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
+import * as AWS from 'aws-sdk';
 import { Readable } from 'stream';
 import csvParser from 'csv-parser';
 
 const s3 = new S3Client({ region: process.env.REGION });
+const sqs = new AWS.SQS({ region: process.env.REGION });
+const QUEUE_URL = process.env.CATALOG_ITEMS_QUEUE_URL as string;
 
 async function moveFileToParsed(bucket: string, sourceKey: string): Promise<void> {
   const fileName = sourceKey.replace(/^uploaded\//, '');
@@ -46,8 +49,11 @@ export async function main(event: any) {
     await new Promise<void>((resolve, reject) => {
       stream
         .pipe(csvParser())
-        .on('data', (row: Record<string, string>) => {
-          console.log('Parsed record:', JSON.stringify(row));
+        .on('data', async (row: Record<string, string>) => {
+          await sqs.sendMessage({
+            QueueUrl: QUEUE_URL,
+            MessageBody: JSON.stringify(row),
+          }).promise();
         })
         .on('end', () => {
           console.log(`Finished processing file: ${key}`);

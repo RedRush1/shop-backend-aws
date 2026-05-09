@@ -2,14 +2,21 @@ import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3n from 'aws-cdk-lib/aws-s3-notifications';
+import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as path from 'path';
 import { Construct } from 'constructs';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
+interface ImportServiceStackProps extends cdk.StackProps {
+  catalogItemsQueue: sqs.Queue;
+}
+
 export class ImportServiceStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: ImportServiceStackProps) {
     super(scope, id, props);
+
+    const { catalogItemsQueue } = props;
 
     // ─── S3 Bucket ────────────────────────────────────────────────────────
     const importBucket = new s3.Bucket(this, 'ImportBucket', {
@@ -58,10 +65,11 @@ export class ImportServiceStack extends cdk.Stack {
       environment: {
         BUCKET_NAME: importBucket.bucketName,
         REGION: this.region,
+        CATALOG_ITEMS_QUEUE_URL: catalogItemsQueue.queueUrl,
       },
       bundling: {
         ...bundling,
-        nodeModules: ['csv-parser'],
+        nodeModules: ['csv-parser', 'aws-sdk'],
       },
     });
 
@@ -69,6 +77,7 @@ export class ImportServiceStack extends cdk.Stack {
     importBucket.grantPut(importProductsFile);
     importBucket.grantRead(importFileParser);
     importBucket.grantDelete(importFileParser);
+    catalogItemsQueue.grantSendMessages(importFileParser);
 
     // ─── S3 Event: trigger importFileParser on uploaded/ prefix ───────────
     importBucket.addEventNotification(
