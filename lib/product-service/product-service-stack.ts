@@ -34,7 +34,7 @@ export class ProductServiceStack extends cdk.Stack {
 
     // ─── Lambda functions ─────────────────────────────────────────────────
     const getProductsList = new NodejsFunction(this, 'getProductsList', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       entry: path.join(__dirname, 'getProductsList.ts'),
@@ -44,7 +44,7 @@ export class ProductServiceStack extends cdk.Stack {
     });
 
     const getProductsById = new NodejsFunction(this, 'getProductsById', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       entry: path.join(__dirname, 'getProductsById.ts'),
@@ -54,7 +54,7 @@ export class ProductServiceStack extends cdk.Stack {
     });
 
     const createProduct = new NodejsFunction(this, 'createProduct', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       entry: path.join(__dirname, 'createProduct.ts'),
@@ -103,7 +103,7 @@ export class ProductServiceStack extends cdk.Stack {
     });
 
     const catalogBatchProcess = new NodejsFunction(this, 'catalogBatchProcess', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       entry: path.join(__dirname, 'catalogBatchProcess.ts'),

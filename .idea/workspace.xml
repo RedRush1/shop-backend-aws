@@ -1,19 +1,329 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="44530c84-1dda-4ae0-a211-d6642fb4e932" name="Changes" comment="feat(task-7): integrated cognito authorization">
+      <change beforePath="$PROJECT_DIR$/bin/shop-backend-aws.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shop-backend-aws.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/authorizer-stack/authorizer-stack.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/authorizer-stack/handler.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/import-service/import-service-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/import-service/import-service-stack.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/vasyl_rebresh/Projects/shop-backend-aws" value="3Czqwl4VNMxr2wm7RM0A1PY2PQk" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+    </selectedModels>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RedRush1&quot;
   }
 }</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RedRush1/shop-backend-aws.git&quot;,
+    &quot;accountId&quot;: &quot;20370f0f-3496-42d1-8e6e-af2ead1c60be&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3Czqwl4VNMxr2wm7RM0A1PY2PQk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.seed-tables.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "task-7",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "/Users/vasyl_rebresh/Projects/shop-backend-aws",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.deploy.executor": "Run",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "ts.external.directory.path": "/Users/vasyl_rebresh/Projects/shop-backend-aws/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="npm.deploy">
+    <configuration name="getProductsList" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/test/product-service.test.ts" />
+      <test-names>
+        <test-name value="getProductsList" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="seed-tables.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/seed-tables.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="Node.js.seed-tables.ts" />
+        <item itemvalue="Jest.getProductsList" />
+        <item itemvalue="npm.deploy" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.23567.141" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="44530c84-1dda-4ae0-a211-d6642fb4e932" name="Changes" comment="feat(extra): added transactional write" />
       <created>1729677005678</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729677005678</updated>
       <workItem from="1729677006752" duration="170000" />
       <workItem from="1729677790264" duration="236000" />
+      <workItem from="1777398987640" duration="3671000" />
+      <workItem from="1777476972426" duration="657000" />
+      <workItem from="1777573432415" duration="6309000" />
+      <workItem from="1777967804363" duration="607000" />
+      <workItem from="1778329940012" duration="7494000" />
+      <workItem from="1778939920941" duration="5176000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(task-4.1): created seed script">
+      <option name="closed" value="true" />
+      <created>1777142767984</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1777142767984</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat(task-4.1): created seed script">
+      <option name="closed" value="true" />
+      <created>1777143237893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1777143237893</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat(task-4.2): integrated dynamo db inro product service">
+      <option name="closed" value="true" />
+      <created>1777144961460</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777144961460</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(task-4.2): integrated the getProductsById to return data from db">
+      <option name="closed" value="true" />
+      <created>1777145515336</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777145515336</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(extra): added transactional write">
+      <option name="closed" value="true" />
+      <created>1777146133985</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777146133985</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(task-5): added csv parser">
+      <option name="closed" value="true" />
+      <created>1777574996983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777574996983</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(task-6): integrated sns and sqs">
+      <option name="closed" value="true" />
+      <created>1778341615790</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778341615790</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat(task-7): integrated cognito authorization">
+      <option name="closed" value="true" />
+      <created>1778945313804</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778945313804</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lib/import-service/importProductsFile.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.cacda03608cdf1740cc0203ea0a395bbc31f7493e519a2b373090cbfc8f9d078/handler.d.ts" />
+        <option value="$PROJECT_DIR$/lib/import-service/importFileParser.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.b72becfa102e40e79289eabe087252b9b6a463c341b3c110ee4dd8d333303a19/TodoStack.d.ts" />
+        <option value="$PROJECT_DIR$/lib/import-service/importProductsFile.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.b72becfa102e40e79289eabe087252b9b6a463c341b3c110ee4dd8d333303a19/TodoStack.js" />
+        <option value="$PROJECT_DIR$/lib/import-service/import-service-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.cacda03608cdf1740cc0203ea0a395bbc31f7493e519a2b373090cbfc8f9d078/hello-lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.cacda03608cdf1740cc0203ea0a395bbc31f7493e519a2b373090cbfc8f9d078/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/lib/import-service/importFileParser.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.cacda03608cdf1740cc0203ea0a395bbc31f7493e519a2b373090cbfc8f9d078/handler.js" />
+        <option value="$PROJECT_DIR$/lib/import-service/import-service-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1cd9909bfaa87db6c001fa45ee96dc27e7b816faf4388cc3d8940848c438348d/hello-lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.b72becfa102e40e79289eabe087252b9b6a463c341b3c110ee4dd8d333303a19/handler.d.ts" />
+        <option value="$PROJECT_DIR$/test/import-service.test.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.b72becfa102e40e79289eabe087252b9b6a463c341b3c110ee4dd8d333303a19/handler.js" />
+        <option value="$PROJECT_DIR$/test/import-service.test.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1cd9909bfaa87db6c001fa45ee96dc27e7b816faf4388cc3d8940848c438348d/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1cd9909bfaa87db6c001fa45ee96dc27e7b816faf4388cc3d8940848c438348d/handler.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1cd9909bfaa87db6c001fa45ee96dc27e7b816faf4388cc3d8940848c438348d/handler.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.eb56519bc522091c22ca8c1ec07128744c5ca41cf8aa5f14dc5821ad2755ceb2/handler.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.eb56519bc522091c22ca8c1ec07128744c5ca41cf8aa5f14dc5821ad2755ceb2/hello-lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.eb56519bc522091c22ca8c1ec07128744c5ca41cf8aa5f14dc5821ad2755ceb2/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.eb56519bc522091c22ca8c1ec07128744c5ca41cf8aa5f14dc5821ad2755ceb2/handler.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/products.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/catalogBatchProcess.d.ts" />
+        <option value="$PROJECT_DIR$/lib/product-service/products.d.ts" />
+        <option value="$PROJECT_DIR$/lib/product-service/catalogBatchProcess.js" />
+        <option value="$PROJECT_DIR$/test/product-service.test.js" />
+        <option value="$PROJECT_DIR$/test/product-service.test.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.99b6869e7e57994f307eeb64a3dc1e02e6c78d4964cc4d129922bd770fa5dfa0/handler.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.99b6869e7e57994f307eeb64a3dc1e02e6c78d4964cc4d129922bd770fa5dfa0/handler.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.99b6869e7e57994f307eeb64a3dc1e02e6c78d4964cc4d129922bd770fa5dfa0/TodoStack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.99b6869e7e57994f307eeb64a3dc1e02e6c78d4964cc4d129922bd770fa5dfa0/TodoStack.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/getProductsList.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/product-service-stack.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/product-service-stack.d.ts" />
+        <option value="$PROJECT_DIR$/lib/product-service/getProductsList.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/products.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/getProductsList.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/product-service-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/product-service-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/getProductsList.d.ts" />
+        <option value="$PROJECT_DIR$/lib/product-service/getProductsById.d.ts" />
+        <option value="$PROJECT_DIR$/lib/product-service/getProductsById.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.1f542aebfbb9cc63b3408887d224e970e75b30fb8a4a606c9b1b24aebdcb7ede/products.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/products.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/getProductsList.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/product-service-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/getProductsList.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/product-service-stack.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/getProductsById.d.ts" />
+        <option value="$PROJECT_DIR$/bin/shop-backend-aws.d.ts" />
+        <option value="$PROJECT_DIR$/bin/shop-backend-aws.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/products.d.ts" />
+        <option value="$PROJECT_DIR$/test/shop-backend-aws.test.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.3001e26818ecfb949da7b8005955dd0651507ff6c5e5e509be74c7881ac4375a/getProductsById.js" />
+        <option value="$PROJECT_DIR$/test/shop-backend-aws.test.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.29f07c2cd3c171a9e75314aaf78c9d44b3d98fb741b692a3407b598048bc5c55/hello-lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/scripts/seed-tables.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.29f07c2cd3c171a9e75314aaf78c9d44b3d98fb741b692a3407b598048bc5c55/handler.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/createProduct.js" />
+        <option value="$PROJECT_DIR$/scripts/seed-tables.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.29f07c2cd3c171a9e75314aaf78c9d44b3d98fb741b692a3407b598048bc5c55/handler.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.29f07c2cd3c171a9e75314aaf78c9d44b3d98fb741b692a3407b598048bc5c55/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/lib/product-service/createProduct.d.ts" />
+        <option value="$PROJECT_DIR$/lib/authorizer-stack/authorizer-stack.d.ts" />
+        <option value="$PROJECT_DIR$/lib/authorizer-stack/handler.js" />
+        <option value="$PROJECT_DIR$/lib/authorizer-stack/authorizer-stack.js" />
+        <option value="$PROJECT_DIR$/lib/authorizer-stack/handler.d.ts" />
+        <option value="$PROJECT_DIR$/lib/authorization-service/authorization-service-stack.js" />
+        <option value="$PROJECT_DIR$/lib/authorization-service/authorization-service-stack.d.ts" />
+        <option value="$PROJECT_DIR$/lib/authorization-service/basicAuthorizer.d.ts" />
+        <option value="$PROJECT_DIR$/lib/authorization-service/basicAuthorizer.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(task-4.1): created seed script" />
+    <MESSAGE value="feat(task-4.2): integrated dynamo db inro product service" />
+    <MESSAGE value="feat(task-4.2): integrated the getProductsById to return data from db" />
+    <MESSAGE value="feat(extra): added transactional write" />
+    <MESSAGE value="feat(task-5): added csv parser" />
+    <MESSAGE value="feat(task-6): integrated sns and sqs" />
+    <MESSAGE value="feat(task-7): integrated cognito authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(task-7): integrated cognito authorization" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

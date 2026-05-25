@@ -1,5 +1,6 @@
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3n from 'aws-cdk-lib/aws-s3-notifications';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -10,13 +11,14 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 interface ImportServiceStackProps extends cdk.StackProps {
   catalogItemsQueue: sqs.Queue;
+  basicAuthorizerFunctionArn: string;
 }
 
 export class ImportServiceStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: ImportServiceStackProps) {
     super(scope, id, props);
 
-    const { catalogItemsQueue } = props;
+    const { catalogItemsQueue, basicAuthorizerFunctionArn } = props;
 
     // ─── S3 Bucket ────────────────────────────────────────────────────────
     const importBucket = new s3.Bucket(this, 'ImportBucket', {
@@ -43,7 +45,7 @@ export class ImportServiceStack extends cdk.Stack {
 
     // ─── Lambda: importProductsFile ───────────────────────────────────────
     const importProductsFile = new NodejsFunction(this, 'importProductsFile', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(10),
       entry: path.join(__dirname, 'importProductsFile.ts'),
@@ -57,7 +59,7 @@ export class ImportServiceStack extends cdk.Stack {
 
     // ─── Lambda: importFileParser ─────────────────────────────────────────
     const importFileParser = new NodejsFunction(this, 'importFileParser', {
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_22_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(60),
       entry: path.join(__dirname, 'importFileParser.ts'),
@@ -100,16 +102,37 @@ export class ImportServiceStack extends cdk.Stack {
       },
     });
 
+    // Import by ARN to avoid a circular cross-stack dependency; addPermission
+    // is a no-op on imported functions so we add the CfnPermission manually below.
+    const importedAuthorizerFn = lambda.Function.fromFunctionArn(
+      this,
+      'BasicAuthorizerFunction',
+      basicAuthorizerFunctionArn,
+    );
+
+    const authorizer = new apigateway.TokenAuthorizer(this, 'basicAuthorizer', {
+      handler: importedAuthorizerFn,
+    });
+
     const importResource = api.root.addResource('import');
     importResource.addMethod(
       'GET',
       new apigateway.LambdaIntegration(importProductsFile, { proxy: true }),
       {
+        authorizer,
+        authorizationType: apigateway.AuthorizationType.CUSTOM,
         requestParameters: {
           'method.request.querystring.name': true,
         },
       },
     );
+
+    new lambda.CfnPermission(this, 'BasicAuthorizerPermission', {
+      action: 'lambda:InvokeFunction',
+      functionName: basicAuthorizerFunctionArn,
+      principal: 'apigateway.amazonaws.com',
+      sourceArn: authorizer.authorizerArn,
+    });
   }
 }
 
